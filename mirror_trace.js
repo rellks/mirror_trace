@@ -75,6 +75,7 @@ function do_mirror() {
 	var yend = materials.yends[trialnumber];
 	var endRadius = 7;
 
+	console.log('in rje repo, trialNo: ' + trialnumber);
 	
 	//states to track
 	drawing = false;
