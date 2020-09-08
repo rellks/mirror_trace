@@ -17,7 +17,7 @@
 
 var materials = {
 		'mirror' : [false, true, true, true, true, true, true, true],
-		'file_names' : ["https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/sample.png", "https://raw.githubusercontent.com/rellks/mirror_trace/master/Star.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trialh2.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trialh3.png", "https://raw.githubusercontent.com/rellks/mirror_trace/master/Star.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trial2.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trial3.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/sample.png"],
+		'file_names' : ["https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/sample.png", "https://rellks.github.io/mirror_trace/Star.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trialh2.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trialh3.png", "https://raw.githubusercontent.com/rellks/mirror_trace/master/Star.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trial2.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trial3.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/sample.png"],
 		'xstarts' : [47,	27,		40,		280,		27, 40, 280, 33],
 		'ystarts' : [256,	275,	45,		276,		275, 45, 276, 250],
 		'xends' :   [344,	370,	368,	33,			370, 368, 33, 47],
