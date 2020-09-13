@@ -20,7 +20,7 @@ var materials = {
 		'file_names' : ["https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/sample.png", "https://rellks.github.io/mirror_trace/Star.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trialh2.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trialh3.png", "https://rellks.github.io/mirror_trace/Star.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trial2.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/trial3.png", "https://raw.githubusercontent.com/rcalinjageman/mirror_trace/master/sample.png"],
 		'xstarts' : [47,	27,		40,		280,		200, 40, 280, 33],
 		'ystarts' : [256,	275,	45,		276,		100, 45, 276, 250],
-		'xends' :   [344,	370,	368,	33,			200, 368, 33, 47],
+		'xends' :   [344,	370,	368,	33,			195, 368, 33, 47],
 		'yends' :    [260,	28,		267,	250,		100,267,250, 256]
 	}
 	
