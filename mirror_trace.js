@@ -402,6 +402,8 @@ function do_mirror_cyclic() {
 	var xstart = materials.xstarts[trialnumber];
 	var ystart = materials.ystarts[trialnumber];;
 	var startRadius = 15;
+	const xend= 0;
+	const yend=0;
 	
 	//states to track
 	drawing = false;
@@ -604,9 +606,12 @@ function do_mirror_cyclic() {
 		 
 	}, false);
 	
-	canvas.addEventListener('keyup', event => {
+	window.addEventListener('keyup', event => {
 		if (event.keyCode === 32){
 			console.log('space key pressed!')
+		}
+		if (event.keyCode === 13){
+			console.log('enter key pressed!')
 		}
 	}, false);
 	
