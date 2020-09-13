@@ -404,6 +404,7 @@ function do_mirror_cyclic() {
 	var startRadius = 15;
 	const xend= 0;
 	const yend=0;
+	const endRadius = 1;
 	
 	//states to track
 	drawing = false;
@@ -607,11 +608,9 @@ function do_mirror_cyclic() {
 	}, false);
 	
 	window.addEventListener('keyup', event => {
-		if (event.keyCode === 32){
-			console.log('space key pressed!')
-		}
 		if (event.keyCode === 13){
-			console.log('enter key pressed!')
+			console.log('enter key pressed!');
+			finished = true;
 		}
 	}, false);
 	
