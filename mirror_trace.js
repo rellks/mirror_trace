@@ -233,7 +233,7 @@ function captureMouseMovement(e){
 				ctx_mirror.lineTo(mouse.x, mouse.y);
 			}
 			ctx_mirror.stroke();		
-			document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"% ";
+			//document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"% ";
 			//document.getElementByID("status").innerHTML = p[0]+p[1]+p[2];
 
 		} else {
@@ -306,7 +306,8 @@ function displayTimeLeft(startTime){
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
-	console.log('time left: ' + remaining);
+	document.getElementById("status").innerHTML = ("Score = " + Math.round(score *100) +"%\n" + 
+	"Time Remaining: " + Math.round(remaining) + " s.\nPress enter when finished.");
 }
 
 function handleKeyDown(event){
