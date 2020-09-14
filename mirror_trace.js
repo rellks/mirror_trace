@@ -47,6 +47,7 @@ const materials = {
 	let mouse;
 	let mirror;
 	let mouseold;
+	let windowInterval;
 
 function betterPos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -296,7 +297,7 @@ function handleMouseDown(){
 		}	
 		
 		window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
-		window.setInterval(() => displayTimeLeft(startTime), 1000);
+		windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
 
 	}
 	
@@ -306,8 +307,8 @@ function displayTimeLeft(startTime){
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
-	document.getElementById("status").innerHTML = ("Score = " + Math.round(score *100) +"%\n" + 
-	"Time Remaining: " + Math.round(remaining) + " s.\nPress enter when finished.");
+	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
+	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 }
 
 function handleKeyDown(event){
@@ -316,7 +317,7 @@ function handleKeyDown(event){
 		drawing = false;
 		finished = true;
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
-
+		clearInterval(windowInterval);
 		if (saveTrace) {
 			saveCanvas();
 			//call save function
