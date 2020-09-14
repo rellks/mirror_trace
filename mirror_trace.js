@@ -1,3 +1,4 @@
+const TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
 const materials = {
 		'mirror' : [true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star.png"],
@@ -276,7 +277,6 @@ function handleMouseDown(){
 	var currentRadius = Math.sqrt(Math.pow(mouse.x - xstart, 2) + Math.pow(mouse.y-ystart, 2));
 	
 	if(!finished && !drawing && (currentRadius < startRadius)) {
-
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx_mirror.drawImage(imageObj, 0, 0, mywidth, myheight);
 		ctx_mirror.fillStyle = 'red';
@@ -293,11 +293,22 @@ function handleMouseDown(){
 			ctx_mirror.moveTo(mywidth-mouse.x, myheight-mouse.y);
 		} else {
 			ctx_mirror.moveTo(mouse.x, mouse.y);
-		}		
+		}	
+		
+		window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
+		window.setInterval(() => displayTimeLeft(startTime), 1000);
+
 	}
 	
 
 }
+function displayTimeLeft(startTime){
+	const curTime = new Date();
+	const diff = curTime - startTime;
+	const remaining = (TIMEOUT_5MIN - diff)/1000;
+	console.log('time left: ' + remaining);
+}
+
 function handleKeyDown(event){
 	if (event.keyCode === 13){
 		console.log('enter key pressed!');
