@@ -38,10 +38,10 @@ const materials = {
 	let lastRefresh = 0;
 	let currentRefresh = 0;
 	let inline = false;
-	let imagePath = materials.file_names[trialnumber];	
-	let xstart = materials.xstarts[trialnumber];
-	let ystart = materials.ystarts[trialnumber];;
-	let startRadius = 10;
+	let imagePath;	
+	let xstart;
+	let ystart;
+	let startRadius;
 	let imageObj;
 	let mouse;
 	let mirror;
@@ -263,9 +263,7 @@ function captureMouseMovement(e){
 				lastRefresh = currentRefresh
 				document.getElementById("status").innerHTML = "Click the green circle to begin this trial"; 
 			}
-			} else {
-				document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
-			}
+			} 
 		}
 		 //store current coordinates
 		 mouseold.x = mouse.x;
@@ -305,6 +303,8 @@ function handleKeyDown(event){
 		console.log('enter key pressed!');
 		drawing = false;
 		finished = true;
+		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
+
 		if (saveTrace) {
 			saveCanvas();
 			//call save function
