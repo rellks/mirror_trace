@@ -401,10 +401,7 @@ function do_mirror_cyclic() {
 	mirror = materials.mirror[trialnumber];
 	var xstart = materials.xstarts[trialnumber];
 	var ystart = materials.ystarts[trialnumber];;
-	var startRadius = 15;
-	const xend= 0;
-	const yend=0;
-	const endRadius = 1;
+	var startRadius = 10;
 	
 	//states to track
 	drawing = false;
@@ -494,16 +491,6 @@ function do_mirror_cyclic() {
                 var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
 		 
 		 var cendRadius = Math.sqrt(Math.pow(mouse.x - xend, 2) + Math.pow(mouse.y-yend, 2));
-		 if (cendRadius < endRadius) {
-		  if (drawing) {
-			drawing = false;
-			finished = true;
-			if (saveTrace) {
-				saveCanvas();
-				//call save function
-			}
-		  }
-		}
 		 		 
 		 //do drawing if in drawing mode
 		 if(drawing) {
@@ -610,7 +597,12 @@ function do_mirror_cyclic() {
 	window.addEventListener('keyup', event => {
 		if (event.keyCode === 13){
 			console.log('enter key pressed!');
+			drawing = false;
 			finished = true;
+			if (saveTrace) {
+				saveCanvas();
+				//call save function
+			}		
 		}
 	}, false);
 	
@@ -634,11 +626,11 @@ function do_mirror_cyclic() {
 						ctx_mirror.fillStyle = 'red';
 						ctx_mirror.globalAlpha=0.4;
 						ctx_mirror.beginPath();
-						if (mirror) {
-							ctx_mirror.arc(mywidth - xend, myheight - yend, endRadius, 0, 2 * Math.PI, false);
-						} else {
-							ctx_mirror.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
-						}
+						//if (mirror) {
+						//	ctx_mirror.arc(mywidth - xend, myheight - yend, endRadius, 0, 2 * Math.PI, false);
+						//} else {
+						//	ctx_mirror.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+						//}
 						 ctx_mirror.fill();
 						ctx_mirror.globalAlpha=1
 						
