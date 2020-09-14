@@ -172,9 +172,7 @@ function captureMouseMovement(e){
 		      var p = ctx_mirror.getImageData(mouse.x, mouse.y, 1, 1).data; 
 		}
                 var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
-		 
-		 var cendRadius = Math.sqrt(Math.pow(mouse.x - xend, 2) + Math.pow(mouse.y-yend, 2));
-		 		 
+		 		 		 
 		 //do drawing if in drawing mode
 		 if(drawing) {
 		    
