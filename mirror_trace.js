@@ -142,7 +142,7 @@ imageObj.src=imagePath;
 return imageObj;
 }
 
-function captureMouseMovement(event){
+function captureMouseMovement(e){
 	{
 	    //get mouse coordinates
 		mouse.x = e.pageX - this.offsetLeft;
@@ -276,7 +276,7 @@ function captureMouseMovement(event){
 	}
 }
 
-function handleMouseDown(event){
+function handleMouseDown(){
 	var currentRadius = Math.sqrt(Math.pow(mouse.x - xstart, 2) + Math.pow(mouse.y-ystart, 2));
 	
 	if(!finished && !drawing && (currentRadius < startRadius)) {
@@ -364,7 +364,7 @@ function do_mirror_cyclic() {
 	canvas.addEventListener('mousedown', event => handleMouseDown(event), false);
 
 	/* Mouse Capturing Work */
-	canvas.addEventListener('mousemove', event => captureMouseMovement(event), false);
+	canvas.addEventListener('mousemove', () => captureMouseMovement(), false);
 	
 	window.addEventListener('keydown', event => handleKeyDown(event), false);
 
