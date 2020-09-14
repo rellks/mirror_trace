@@ -361,10 +361,10 @@ function do_mirror_cyclic() {
 	resetStates();
 	imageObj = getNewImageObj();
 
-	canvas.addEventListener('mousedown', event => handleMouseDown(event), false);
+	canvas.addEventListener('mousedown', () => handleMouseDown(), false);
 
 	/* Mouse Capturing Work */
-	canvas.addEventListener('mousemove', () => captureMouseMovement(), false);
+	canvas.addEventListener('mousemove', event => captureMouseMovement(event), false);
 	
 	window.addEventListener('keydown', event => handleKeyDown(event), false);
 
