@@ -52,6 +52,10 @@ const materials = {
 	let mirror;
 	let mouseold;
 	let windowInterval;
+	
+	
+	let prevInline;
+	let prevCrossings;
 
 function betterPos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -301,7 +305,7 @@ function handleMouseDown(){
 		if (firstTry){
 			firstTry = false;
 			startTime = new Date();
-
+			prevInline = true;
 			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
 			windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
 		}
@@ -321,7 +325,7 @@ function displayTimeLeft(startTime){
 		numRestarts++;
 		resetStates();
 	} 
-	prevInLine = inline;
+	prevInline = inline;
 	prevCrossings = crossings;
 }
 
@@ -354,6 +358,9 @@ function resetStates(){
 	distance_offline = 0;
 	lastRefresh = 0;
 	currentRefresh = 0;
+
+	prevInline = true;
+	prevCrossings = 0;
 
 	//drawing contexts for cursor area and mirrored area
 	canvas = document.querySelector('#paint');
