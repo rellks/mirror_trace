@@ -323,6 +323,7 @@ function displayTimeLeft(startTime){
 	if(drawing && (prevCrossings == crossings) && !prevInline && !inline){
 		console.log('out of bounds > 2sec')
 		numRestarts++;
+		console.log(numRestarts);
 		resetStates();
 	} 
 	if(drawing){
@@ -364,13 +365,7 @@ function resetStates(){
 	prevInline = true;
 	prevCrossings = 0;
 
-	//drawing contexts for cursor area and mirrored area
-	canvas = document.querySelector('#paint');
-	ctx = canvas.getContext('2d');
-	canvas_mirror = document.querySelector('#mirror');
-	ctx_mirror = canvas_mirror.getContext('2d');
-
-
+	imageObj = getNewImageObj();
 
 }
 
@@ -381,7 +376,11 @@ function do_mirror_cyclic() {
 	xstart = materials.xstarts[trialnumber];
 	ystart = materials.ystarts[trialnumber];
 
-	resetStates();
+	//drawing contexts for cursor area and mirrored area
+	canvas = document.querySelector('#paint');
+	ctx = canvas.getContext('2d');
+	canvas_mirror = document.querySelector('#mirror');
+	ctx_mirror = canvas_mirror.getContext('2d');
 
 	//defines data structure for mouse movement
 	mouse = {x: 0, y: 0};	
@@ -392,8 +391,8 @@ function do_mirror_cyclic() {
 	ctx_mirror.lineJoin = 'round';
 	ctx_mirror.lineCap = 'round';
 	ctx_mirror.strokeStyle = 'blue';
-
-	imageObj = getNewImageObj();
+		
+	resetStates();
 	
 	canvas.addEventListener('mousedown', () => handleMouseDown(), false);
 	/* Mouse Capturing Work */
