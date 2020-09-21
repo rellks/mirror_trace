@@ -305,10 +305,7 @@ function handleMouseDown(){
 			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
 			windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
 		}
-
 	}
-	
-
 }
 
 function displayTimeLeft(startTime){
@@ -318,9 +315,11 @@ function displayTimeLeft(startTime){
 	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
+
 	if((prevCrossings == crossings) && !prevInline && !inline){
+		console.log('out of bounds > 2sec')
 		numRestarts++;
-		restart();
+		resetStates();
 	} 
 	prevInLine = inline;
 	prevCrossings = crossings;
@@ -391,8 +390,4 @@ function do_mirror_cyclic() {
 	
 	window.addEventListener('keydown', event => handleKeyDown(event), false);
 
-}
-
-function restart(){
-	resetStates();
 }
