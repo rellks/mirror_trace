@@ -296,6 +296,7 @@ function handleMouseDown(){
 		
 		drawing = true;
 		finished = false;
+
 		ctx_mirror.beginPath();
 		if (mirror) {
 			ctx_mirror.moveTo(mywidth-mouse.x, myheight-mouse.y);
@@ -305,7 +306,6 @@ function handleMouseDown(){
 		if (firstTry){
 			firstTry = false;
 			startTime = new Date();
-			prevInline = true;
 			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
 			windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
 		}
@@ -368,6 +368,19 @@ function resetStates(){
 	canvas_mirror = document.querySelector('#mirror');
 	ctx_mirror = canvas_mirror.getContext('2d');
 
+
+
+}
+
+function do_mirror_cyclic() {	
+	//load materials
+	imagePath = materials.file_names[trialnumber];	
+	mirror = materials.mirror[trialnumber];
+	xstart = materials.xstarts[trialnumber];
+	ystart = materials.ystarts[trialnumber];
+
+	resetStates();
+
 	//defines data structure for mouse movement
 	mouse = {x: 0, y: 0};	
 	mouseold = {x: 0, y: 0};	
@@ -379,17 +392,6 @@ function resetStates(){
 	ctx_mirror.strokeStyle = 'blue';
 
 	imageObj = getNewImageObj();
-
-}
-
-function do_mirror_cyclic() {	
-	//load materials
-	imagePath = materials.file_names[trialnumber];	
-	mirror = materials.mirror[trialnumber];
-	xstart = materials.xstarts[trialnumber];
-	ystart = materials.ystarts[trialnumber];;
-	
-	resetStates();
 	
 	canvas.addEventListener('mousedown', () => handleMouseDown(), false);
 	/* Mouse Capturing Work */
