@@ -17,32 +17,36 @@ const materials = {
 	//image dimensions
 	const mywidth = 400;
 	const myheight = 300;
+	
+	const startRadius = 10;
 
-	let score = 0;
-	let timeDiff = 0;
-	let trialnumber = 0;
-	let MID = 0;
-	let drawing = false;
-	let finished = false;
-	let timeFinished = 0;
+	let numRestarts = 0;
+	let firstTry = true;
+
+	let score;
+	let timeDiff;
+	let trialnumber;
+	let MID;
+	let drawing;
+	let finished;
+	let timeFinished;
 	let canvas;
 	let ctx;
 	let canvas_mirror;
 	let ctx_mirror;
-	let crossings = 0;
-	let distance_total = 0;
-	let distance_current = 0;
-	let distance_inline = 0;
-	let distance_offline = 0;
-	let startTime = 0;
-	let endTime = 0;
-	let lastRefresh = 0;
-	let currentRefresh = 0;
-	let inline = false;
+	let crossings;
+	let distance_total;
+	let distance_current;
+	let distance_inline;
+	let distance_offline;
+	let startTime;
+	let endTime;
+	let lastRefresh;
+	let currentRefresh;
+	let inline;
 	let imagePath;	
 	let xstart;
 	let ystart;
-	let startRadius;
 	let imageObj;
 	let mouse;
 	let mirror;
@@ -288,27 +292,38 @@ function handleMouseDown(){
 		
 		drawing = true;
 		finished = false;
-		startTime = new Date();
 		ctx_mirror.beginPath();
 		if (mirror) {
 			ctx_mirror.moveTo(mywidth-mouse.x, myheight-mouse.y);
 		} else {
 			ctx_mirror.moveTo(mouse.x, mouse.y);
 		}	
-		
-		window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
-		windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
+		if (firstTry){
+			firstTry = false;
+			startTime = new Date();
+
+			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
+			windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
+		}
 
 	}
 	
 
 }
+
 function displayTimeLeft(startTime){
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
 	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
+
+	if((prevCrossings == crossings) && !prevInline && !inline){
+		numRestarts++;
+		restart();
+	} 
+	prevInLine = inline;
+	prevCrossings = crossings;
 }
 
 function handleKeyDown(event){
@@ -326,31 +341,27 @@ function handleKeyDown(event){
 }
 
 function resetStates(){
-//states to track
-drawing = false;
-finished = false;
-score = 0;
-timeDiff = 0;
-timeFinished = 0;
-inline = false;
-crossings = 0;
-distance_total = 0;
-distance_current = 0;
-distance_inline = 0;
-distance_offline = 0;
-startTime = 0;
-endTime = 0;
-lastRefresh = 0;
-currentRefresh = 0;
-startRadius = 10;
-
+	//states to track
+	drawing = false;
+	finished = false;
+	score = 0;
+	timeDiff = 0;
+	timeFinished = 0;
+	inline = false;
+	crossings = 0;
+	distance_total = 0;
+	distance_current = 0;
+	distance_inline = 0;
+	distance_offline = 0;
+	lastRefresh = 0;
+	currentRefresh = 0;
 
 	//drawing contexts for cursor area and mirrored area
 	canvas = document.querySelector('#paint');
 	ctx = canvas.getContext('2d');
 	canvas_mirror = document.querySelector('#mirror');
 	ctx_mirror = canvas_mirror.getContext('2d');
-	
+
 	//defines data structure for mouse movement
 	mouse = {x: 0, y: 0};	
 	mouseold = {x: 0, y: 0};	
@@ -360,6 +371,9 @@ startRadius = 10;
 	ctx_mirror.lineJoin = 'round';
 	ctx_mirror.lineCap = 'round';
 	ctx_mirror.strokeStyle = 'blue';
+
+	imageObj = getNewImageObj();
+
 }
 
 function do_mirror_cyclic() {	
@@ -370,13 +384,15 @@ function do_mirror_cyclic() {
 	ystart = materials.ystarts[trialnumber];;
 	
 	resetStates();
-	imageObj = getNewImageObj();
-
+	
 	canvas.addEventListener('mousedown', () => handleMouseDown(), false);
-
 	/* Mouse Capturing Work */
 	canvas.addEventListener('mousemove', event => captureMouseMovement(event), false);
 	
 	window.addEventListener('keydown', event => handleKeyDown(event), false);
 
+}
+
+function restart(){
+	resetStates();
 }
