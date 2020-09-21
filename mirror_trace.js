@@ -320,7 +320,7 @@ function displayTimeLeft(startTime){
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
 
-	if((prevCrossings == crossings) && !prevInline && !inline){
+	if(drawing && (prevCrossings == crossings) && !prevInline && !inline){
 		console.log('out of bounds > 2sec')
 		numRestarts++;
 		resetStates();
