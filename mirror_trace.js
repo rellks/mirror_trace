@@ -325,8 +325,10 @@ function displayTimeLeft(startTime){
 		numRestarts++;
 		resetStates();
 	} 
+	if(drawing){
 	prevInline = inline;
 	prevCrossings = crossings;
+	}
 }
 
 function handleKeyDown(event){
