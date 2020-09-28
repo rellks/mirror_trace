@@ -323,14 +323,6 @@ function handleOneSecondInterval(startTime){
 	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
-	console.log('prevPrevCrossings: ' + prevPrevCrossings);
-	console.log('prevCrossings: ' + prevCrossings);
-	console.log('crossings: ' + crossings);
-	
-	console.log('prevPrevInline: ' + prevPrevInline);
-	console.log('prevInline: ' + prevInline);
-	console.log('inline: ' + inline);
-
 	if(drawing && (prevPrevCrossings === prevCrossings === crossings) && !prevPrevInline &&  !prevInline && !inline){
 		console.log('out of bounds > 2sec')
 		numRestarts++;
