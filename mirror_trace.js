@@ -321,14 +321,14 @@ function handleOneSecondInterval(startTime){
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
 
-	if(drawing && (prevCrossings == crossings) && !prevInline && !inline){
+	if(drawing && (prevCrossings === crossings) && !prevInline && !inline){
 		console.log('out of bounds > 2sec')
 		numRestarts++;
 		console.log(numRestarts);
 		resetStates();
 	}  
 
-	if(drawing && (prevMouse.x - mouse.x + prevMouse.y - mouse.y == 0)){
+	if(drawing && (prevMouse.x - mouse.x + prevMouse.y - mouse.y === 0)){
 		console.log('not moving > 1sec')
 		numRestarts++;
 		console.log(numRestarts);
@@ -377,9 +377,7 @@ function resetStates(){
 
 	prevInline = true;
 	prevCrossings = 0;
-	prevMouse.x = -1;
-	prevMouse.y = -1;
-
+	prevMouse = {x: -1, y: -1};
 
 	imageObj = getNewImageObj();
 
