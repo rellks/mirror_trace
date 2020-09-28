@@ -53,11 +53,13 @@ const materials = {
 	let mouseold;
 	let windowInterval;
 	
-	
-	let prevInline;
-	let prevCrossings;
-	let prevMouse;
-	let prevPrevMouse;
+	let prevPrevInline; // track two seconds ago - out of bounds
+	let prevPrevCrossings; // track two seconds ago - out of bounds
+	let prevPrevMouse; // track two seconds ago - not moving
+
+	let prevInline; // track one second ago - out of bounds
+	let prevCrossings;  // track one second ago - out of bounds
+	let prevMouse;  // track one second ago - not moving
 
 function betterPos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -322,7 +324,7 @@ function handleOneSecondInterval(startTime){
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
 
-	if(drawing && (prevCrossings === crossings) && !prevInline && !inline){
+	if(drawing && (prevPrevCrossings === prevCrossings === crossings) && !prevPrevInline &&  !prevInline && !inline){
 		console.log('out of bounds > 2sec')
 		numRestarts++;
 		console.log(numRestarts);
@@ -337,7 +339,10 @@ function handleOneSecondInterval(startTime){
 		resetStates();
 	} 
 	
+	// set next states
 	if(drawing){
+		prevPrevInline = prevInline;
+		prevPrevCrossings = prevCrossings;
 		prevInline = inline;
 		prevCrossings = crossings;
 	
@@ -384,6 +389,8 @@ function resetStates(){
 	prevCrossings = 0;
 	prevMouse = {x: -1, y: -1};
 	prevPrevMouse = {x: -1, y: -1};
+	prevPrevInline = true;
+	prevPrevCrossings = 0;
 
 	imageObj = getNewImageObj();
 
