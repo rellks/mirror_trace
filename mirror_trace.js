@@ -57,6 +57,7 @@ const materials = {
 	let prevInline;
 	let prevCrossings;
 	let prevMouse;
+	let prevPrevMouse;
 
 function betterPos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -328,8 +329,9 @@ function handleOneSecondInterval(startTime){
 		resetStates();
 	}  
 
-	if(drawing && (prevMouse.x - mouse.x + prevMouse.y - mouse.y === 0)){
-		console.log('not moving > 1sec')
+	if(drawing && (prevPrevMouse.x - mouse.x + prevPrevMouse.y - mouse.y === 0) &&
+	(prevMouse.x - mouse.x + prevMouse.y - mouse.y === 0)){
+		console.log('not moving > 2 sec')
 		numRestarts++;
 		console.log(numRestarts);
 		resetStates();
@@ -339,6 +341,9 @@ function handleOneSecondInterval(startTime){
 		prevInline = inline;
 		prevCrossings = crossings;
 	
+		prevPrevMouse.x = prevMouse.x;
+		prevPrevMouse.y = prevMouse.y
+
 		prevMouse.x = mouse.x;
 		prevMouse.y = mouse.y
 	}
@@ -378,6 +383,7 @@ function resetStates(){
 	prevInline = true;
 	prevCrossings = 0;
 	prevMouse = {x: -1, y: -1};
+	prevPrevMouse = {x: -1, y: -1};
 
 	imageObj = getNewImageObj();
 
