@@ -307,12 +307,12 @@ function handleMouseDown(){
 			firstTry = false;
 			startTime = new Date();
 			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
-			windowInterval = window.setInterval(() => displayTimeLeft(startTime), 1000);
+			windowInterval = window.setInterval(() => handleOneSecondInterval(startTime), 1000);
 		}
 	}
 }
 
-function displayTimeLeft(startTime){
+function handleOneSecondInterval(startTime){
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
@@ -322,6 +322,12 @@ function displayTimeLeft(startTime){
 
 	if(drawing && (prevCrossings == crossings) && !prevInline && !inline){
 		console.log('out of bounds > 2sec')
+		numRestarts++;
+		console.log(numRestarts);
+		resetStates();
+	} 
+	if(drawing && (mouseold.x - mouse.x + mouseold.y - mouse.y == 0)){
+		console.log('out of bounds > 1sec')
 		numRestarts++;
 		console.log(numRestarts);
 		resetStates();
