@@ -323,7 +323,7 @@ function handleOneSecondInterval(startTime){
 	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
-	console.log('prevPrevCross: ' + prevPrevCross);
+	console.log('prevPrevCrossings: ' + prevPrevCrossings);
 	console.log('prevCrossings: ' + prevCrossings);
 	console.log('crossings: ' + crossings);
 	
