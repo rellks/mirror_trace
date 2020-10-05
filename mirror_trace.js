@@ -310,12 +310,12 @@ function handleMouseDown(){
 			firstTry = false;
 			startTime = new Date();
 			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
-			windowInterval = window.setInterval(() => handleOneSecondInterval(startTime), 1000);
+			oneSecInterval = setInterval(() => handleOneSecInterval(startTime), 1000);
 		}
 	}
 }
 
-function handleOneSecondInterval(startTime){
+function handleOneSecInterval(startTime){
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
@@ -359,7 +359,7 @@ function handleKeyDown(event){
 		drawing = false;
 		finished = true;
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
-		clearInterval(windowInterval);
+		clearInterval(oneSecInterval);
 		if (saveTrace) {
 			saveCanvas();
 			//call save function
