@@ -359,8 +359,8 @@ function handleKeyDown(event){
 		drawing = false;
 		finished = true;
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
-		clearInterval(oneSecInterval);
-		if (saveTrace) {
+		document.getElementById("time").innerHTML = ""; 
+			if (saveTrace) {
 			saveCanvas();
 			//call save function
 		}		
