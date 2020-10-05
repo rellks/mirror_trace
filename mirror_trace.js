@@ -147,7 +147,7 @@ imageObj.onload = function() {
  ctx.fill();
  ctx_mirror.globalAlpha=1;
  ctx.globalAlpha=1;
- document.getElementById("status").innerHTML = "Click the green circle to begin this trial"; 
+ document.getElementById("status").innerHTML = "Click the green circle to start."; 
 };
 imageObj.crossOrigin="anonymous";
 imageObj.src=imagePath;
@@ -274,7 +274,7 @@ function captureMouseMovement(e){
 				ctx_mirror.fillStyle = 'green';
 				ctx_mirror.fill();
 				lastRefresh = currentRefresh
-				document.getElementById("status").innerHTML = "Click the green circle to begin this trial"; 
+				document.getElementById("status").innerHTML = "Click the green circle to restart."; 
 			}
 			} 
 		}
