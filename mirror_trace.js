@@ -12,7 +12,7 @@ const materials = {
 	// to use this feature, set saveTrace to true and set saveScript to your server.  Your server will need a php script for accepting the files.
 	// the php script is posted on github
 	const saveScript = "https://calin-jageman.net/mirror_trace/save.php"
-	const saveTrace = false;
+ 	const saveTrace = false;
 
 	//image dimensions
 	const mywidth = 400;
@@ -101,7 +101,6 @@ function saveCanvas() {
 	data =  screenshot.src; 
 	canvas_mirror.parentNode.removeChild(screenshot);
 
-  
 	// Send the screenshot to PHP to save it on the server
 	var url = saveScript;
 	
@@ -323,7 +322,7 @@ function handleOneSecondInterval(startTime){
 	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
 	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
-	if(drawing && (prevPrevCrossings === prevCrossings === crossings) && !prevPrevInline &&  !prevInline && !inline){
+	if(drawing && (prevPrevCrossings === prevCrossings ) && (prevCrossings === crossings) && !prevPrevInline && !prevInline && !inline){
 		console.log('out of bounds > 2sec')
 		numRestarts++;
 		console.log(numRestarts);
