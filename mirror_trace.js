@@ -245,7 +245,7 @@ function captureMouseMovement(e){
 				ctx_mirror.lineTo(mouse.x, mouse.y);
 			}
 			ctx_mirror.stroke();		
-			//document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"% ";
+			document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"% ";
 			//document.getElementByID("status").innerHTML = p[0]+p[1]+p[2];
 
 		} else {
@@ -319,8 +319,7 @@ function handleOneSecInterval(startTime){
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
-	document.getElementById("status").innerHTML = "Score = " + Math.round(score *100) +"%\n" + 
-	"Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
+	document.getElementById("time").innerHTML = "Time Remaining: " + Math.round(remaining) + "s.\nPress enter when finished.";
 
 	if(drawing && (prevPrevCrossings === prevCrossings ) && (prevCrossings === crossings) && !prevPrevInline && !prevInline && !inline){
 		console.log('out of bounds > 2sec')
@@ -356,6 +355,7 @@ function handleOneSecInterval(startTime){
 function handleKeyDown(event){
 	if (event.keyCode === 13){
 		console.log('enter key pressed!');
+		clearInterval(oneSecInterval);
 		drawing = false;
 		finished = true;
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
