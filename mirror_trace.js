@@ -274,7 +274,7 @@ function captureMouseMovement(e){
 				ctx_mirror.fillStyle = 'green';
 				ctx_mirror.fill();
 				lastRefresh = currentRefresh
-				document.getElementById("status").innerHTML = "Click the green circle to restart."; 
+				document.getElementById("status").innerHTML = "Click the green circle to start."; 
 			}
 			} 
 		}
