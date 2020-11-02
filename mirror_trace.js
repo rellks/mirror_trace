@@ -390,7 +390,7 @@ function resetStates(){
 	prevPrevMouse = {x: -1, y: -1};
 	prevPrevInline = true;
 	prevPrevCrossings = 0;
-
+	firstTry = true;
 	imageObj = getNewImageObj();
 
 }
