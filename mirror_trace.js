@@ -1,4 +1,3 @@
-let TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
 const materials = {
 		'mirror' : [true, true, true, true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
@@ -309,6 +308,7 @@ function handleMouseDown(){
 		if (firstTry){
 			firstTry = false;
 			startTime = new Date();
+			const TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
 			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
 			oneSecInterval = setInterval(() => handleOneSecInterval(startTime), 1000);
 		}
@@ -316,6 +316,7 @@ function handleMouseDown(){
 }
 
 function handleOneSecInterval(startTime){
+	const TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
 	const curTime = new Date();
 	const diff = curTime - startTime;
 	const remaining = (TIMEOUT_5MIN - diff)/1000;
