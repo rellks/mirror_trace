@@ -1,4 +1,4 @@
-const TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
+let TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
 const materials = {
 		'mirror' : [true, true, true, true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
