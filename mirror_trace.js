@@ -309,7 +309,7 @@ function handleMouseDown(){
 			firstTry = false;
 			startTime = new Date();
 			const TIMEOUT_5MIN = 5*60*1000; // (5min) * (60sec/min) * (1000ms/sec)
-			window.setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
+			fiveMinTimeout = setTimeout(() => handleKeyDown({keyCode:13}), TIMEOUT_5MIN);
 			oneSecInterval = setInterval(() => handleOneSecInterval(startTime), 1000);
 		}
 	}
@@ -357,6 +357,7 @@ function handleKeyDown(event){
 	if (event.keyCode === 13){
 		console.log('enter key pressed!');
 		clearInterval(oneSecInterval);
+		clearTimeout(fiveMinTimeout);
 		drawing = false;
 		finished = true;
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
