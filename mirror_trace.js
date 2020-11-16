@@ -398,7 +398,6 @@ function resetStates(){
 	prevPrevInline = true;
 	prevPrevCrossings = 0;
 	imageObj = getNewImageObj();
-
 }
 
 function do_mirror_cyclic() {	
@@ -417,6 +416,8 @@ function do_mirror_cyclic() {
 	//defines data structure for mouse movement
 	mouse = {x: 0, y: 0};	
 	mouseold = {x: 0, y: 0};	
+
+	taskTime = -1;
 
 	/* Drawing on Paint App */
 	ctx_mirror.lineWidth = 1.2;
