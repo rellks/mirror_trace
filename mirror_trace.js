@@ -364,7 +364,7 @@ function handleKeyDown(event){
 		finished = true;
 
 		const curTime = new Date();
-		taskTime = curTime - startTime;
+		taskTime = (curTime - startTime)/1000;
 
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
 		document.getElementById("time").innerHTML = ""; 
