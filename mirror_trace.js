@@ -51,6 +51,8 @@ const materials = {
 	let mirror;
 	let mouseold;
 	let windowInterval;
+
+	let taskTime; //total time between first start and pressing enter/time over
 	
 	let prevPrevInline; // track two seconds ago - out of bounds
 	let prevPrevCrossings; // track two seconds ago - out of bounds
@@ -360,6 +362,10 @@ function handleKeyDown(event){
 		clearTimeout(fiveMinTimeout);
 		drawing = false;
 		finished = true;
+
+		const curTime = new Date();
+		taskTime = curTime - startTime;
+
 		document.getElementById("status").innerHTML = "Finished with score = " + Math.round(score *100) + "%<BR> Click next to continue."; 
 		document.getElementById("time").innerHTML = ""; 
 			if (saveTrace) {
