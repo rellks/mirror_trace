@@ -149,13 +149,13 @@ imageObj.onload = function() {
  ctx.globalAlpha=0.4;
  
  // TODO delete!
-//  ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
-//  ctx.fillStyle = 'green';
-//  ctx.fill();
+ ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'red';
+ ctx.fill();
 
-//  ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
-//  ctx.fillStyle = 'red';
-//  ctx.fill();
+ ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'red';
+ ctx.fill();
 
 
  ctx.beginPath();
