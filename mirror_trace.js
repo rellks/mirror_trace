@@ -154,10 +154,6 @@ imageObj.onload = function() {
  ctx.fillStyle = 'red';
  ctx.fill();
 
- ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'red';
- ctx.fill();
-
 
  ctx.beginPath();
   if (mirror) {
