@@ -411,6 +411,7 @@ function handleKeyDown(event){
 }
 
 function resetStates(){
+	console.log('resetting states');
 	//states to track
 	drawing = false;
 	finished = false;
