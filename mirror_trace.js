@@ -4,7 +4,7 @@ const materials = {
 		'xstarts' : [200, 200, 200, 200],
 		'ystarts' : [100, 100, 100, 100],		
 		'xmids' : [200, 200, 200, 200],
-		'ymids' : [25, 25, 25, 25],
+		'ymids' : [250, 250, 250, 250],
 		'xends' :  [200, 200, 200, 200],
 		'yends' :    [100, 100, 100, 100]
 	}
@@ -148,6 +148,16 @@ imageObj.onload = function() {
  ctx_mirror.globalAlpha=0.4;
  ctx.globalAlpha=0.4;
  
+ // TODO delete!
+ ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'blue';
+ ctx.fill();
+
+ ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'red';
+ ctx.fill();
+
+
  ctx.beginPath();
   if (mirror) {
 	  ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
@@ -157,15 +167,6 @@ imageObj.onload = function() {
   }
 
  ctx.fillStyle = 'green';
- ctx.fill();
- 
- // TODO delete!
- ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'blue';
- ctx.fill();
-
- ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'red';
  ctx.fill();
 
  ctx_mirror.globalAlpha=1;
