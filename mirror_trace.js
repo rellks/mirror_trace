@@ -433,6 +433,9 @@ function resetStates(){
 	prevPrevInline = true;
 	prevPrevCrossings = 0;
 	imageObj = getNewImageObj();
+
+	passedMid = false;
+	completed = false;
 }
 
 function do_mirror_cyclic() {	
