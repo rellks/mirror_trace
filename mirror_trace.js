@@ -21,6 +21,7 @@ const materials = {
 	
 	const startRadius = 10;
 	const endRadius = 5;
+	const midRadius = 15;
 
 	let numRestarts = 0;
 	let firstTry = true;
@@ -149,7 +150,7 @@ imageObj.onload = function() {
  ctx.globalAlpha=0.4;
  
  // TODO delete!
- ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ ctx.arc(xmid, ymid, midRadius, 0, 2 * Math.PI, false);
  ctx.fillStyle = 'red';
  ctx.fill();
 
@@ -217,7 +218,7 @@ function captureMouseMovement(e){
 			handleKeyDown({keyCode:13});
 		}
 		var cmidRadius = Math.sqrt(Math.pow(mouse.x - xmid, 2) + Math.pow(mouse.y-ymid, 2));
-		if (drawing && cmidRadius < endRadius ) {
+		if (drawing && cmidRadius < midRadius ) {
 			console.log("passed midpoint of star");
 			passedMid = true;
 		}
