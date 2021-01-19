@@ -2,9 +2,11 @@ const materials = {
 		'mirror' : [true, true, true, true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
 		'xstarts' : [200, 200, 200, 200],
-		'ystarts' : [100, 100, 100, 100],
-		'xends' :   [],
-		'yends' :    []
+		'ystarts' : [100, 100, 100, 100],		
+		'xmids' : [200, 200, 200, 200],
+		'ymids' : [25, 25, 25, 25],
+		'xends' :  [200, 200, 200, 200],
+		'yends' :    [100, 100, 100, 100]
 	}
 	
 	// this script can save screenshots of completed trials.  
@@ -18,6 +20,7 @@ const materials = {
 	const myheight = 300;
 	
 	const startRadius = 10;
+	const endRadius = 5;
 
 	let numRestarts = 0;
 	let firstTry = true;
@@ -45,7 +48,11 @@ const materials = {
 	let inline;
 	let imagePath;	
 	let xstart;
-	let ystart;
+	let ystart;	
+	let xend;
+	let yend;	
+	let xmid;
+	let ymid;
 	let imageObj;
 	let mouse;
 	let mirror;
@@ -61,6 +68,9 @@ const materials = {
 	let prevInline; // track one second ago - out of bounds
 	let prevCrossings;  // track one second ago - out of bounds
 	let prevMouse;  // track one second ago - not moving
+
+	let passedMid; // true if user has passed upper middle of star, inidicates if end point should be active
+	let completed; // inidicates if user made it to the end point; True if user makes it to the end point
 
 function betterPos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -141,11 +151,20 @@ imageObj.onload = function() {
  ctx.beginPath();
   if (mirror) {
 	  ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
+
   } else {
 	  ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
   }
+
  ctx.fillStyle = 'green';
  ctx.fill();
+ 
+ // TODO delete!
+ ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'red';
+ ctx.fill();
+
  ctx_mirror.globalAlpha=1;
  ctx.globalAlpha=1;
  document.getElementById("status").innerHTML = "Click the green circle to start."; 
@@ -185,7 +204,18 @@ function captureMouseMovement(e){
 		} else {
 		      var p = ctx_mirror.getImageData(mouse.x, mouse.y, 1, 1).data; 
 		}
-                var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+		
+		var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+
+		var cendRadius = Math.sqrt(Math.pow(mouse.x - xend, 2) + Math.pow(mouse.y-yend, 2));
+		if (drawing && passedMid && cendRadius < endRadius ) {
+			completed = true;
+			handleKeyDown({keyCode:13});
+		}
+		var cmidRadius = Math.sqrt(Math.pow(mouse.x - xmid, 2) + Math.pow(mouse.y-ymid, 2));
+		if (drawing && cmidRadius < endRadius ) {
+			passedMid = true;
+		}
 		 		 		 
 		 //do drawing if in drawing mode
 		 if(drawing) {
@@ -405,7 +435,11 @@ function do_mirror_cyclic() {
 	imagePath = materials.file_names[trialnumber];	
 	mirror = materials.mirror[trialnumber];
 	xstart = materials.xstarts[trialnumber];
-	ystart = materials.ystarts[trialnumber];
+	ystart = materials.ystarts[trialnumber];	
+	xend = materials.xends[trialnumber];
+	yend = materials.yends[trialnumber];	
+	xmid = materials.xmids[trialnumber];
+	ymid = materials.ymids[trialnumber];
 
 	//drawing contexts for cursor area and mirrored area
 	canvas = document.querySelector('#paint');
