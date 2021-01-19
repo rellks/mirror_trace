@@ -218,6 +218,7 @@ function captureMouseMovement(e){
 		}
 		var cmidRadius = Math.sqrt(Math.pow(mouse.x - xmid, 2) + Math.pow(mouse.y-ymid, 2));
 		if (drawing && cmidRadius < endRadius ) {
+			console.log("passed midpoint of star");
 			passedMid = true;
 		}
 		 		 		 
