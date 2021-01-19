@@ -161,11 +161,11 @@ imageObj.onload = function() {
  
  // TODO delete!
  ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'red';
+ ctx.fillStyle = 'blue';
  ctx.fill();
 
  ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'blue';
+ ctx.fillStyle = 'red';
  ctx.fill();
 
  ctx_mirror.globalAlpha=1;
