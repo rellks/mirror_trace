@@ -20,8 +20,8 @@ const materials = {
 	const myheight = 300;
 	
 	const startRadius = 10;
-	const endRadius = 5;
-	const midRadius = 15;
+	const endRadius = 8;
+	const midRadius = 20;
 
 	let numRestarts = 0;
 	let firstTry = true;
@@ -149,12 +149,6 @@ imageObj.onload = function() {
  ctx_mirror.drawImage(imageObj, 0, 0, mywidth, myheight);
  ctx_mirror.globalAlpha=0.4;
  ctx.globalAlpha=0.4;
- 
- // TODO delete!
- ctx.arc(xmid, ymid, midRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'red';
- ctx.fill();
-
 
  ctx.beginPath();
   if (mirror) {
@@ -210,7 +204,7 @@ function captureMouseMovement(e){
 		var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
 
 		var cendRadius = Math.sqrt(Math.pow(mouse.x - xend, 2) + Math.pow(mouse.y-yend, 2));
-		if (drawing && passedMid && cendRadius < endRadius ) {
+		if (drawing && passedMid && cendRadius < endRadius && pathLength > 200) {
 			completed = true;
 			handleKeyDown({keyCode:13});
 		}
@@ -265,7 +259,7 @@ function captureMouseMovement(e){
 				
 			distance_total = distance_total + distance_current;	
 			score = distance_inline / distance_total;
-			console.log(distance_inline);
+			pathLength = distance_inline;
 			endTime = new Date();
 			timeDiff = (endTime - startTime)/1000;
 			
