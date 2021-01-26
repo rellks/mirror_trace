@@ -72,6 +72,7 @@ const materials = {
 
 	let passedMid; // true if user has passed upper middle of star, inidicates if end point should be active
 	let completed; // inidicates if user made it to the end point; True if user makes it to the end point
+	let pathLength;
 
 function betterPos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -240,6 +241,7 @@ function captureMouseMovement(e){
 					ctx_mirror.beginPath();
 					if(mirror) {
 						ctx_mirror.moveTo(mywidth-mouse.x, myheight-mouse.y);
+						
 					} else {
 						ctx_mirror.moveTo(mouse.x, mouse.y);
 					}
@@ -263,6 +265,7 @@ function captureMouseMovement(e){
 				
 			distance_total = distance_total + distance_current;	
 			score = distance_inline / distance_total;
+			console.log(distance_inline);
 			endTime = new Date();
 			timeDiff = (endTime - startTime)/1000;
 			
@@ -434,6 +437,7 @@ function resetStates(){
 
 	passedMid = false;
 	completed = false;
+	pathLength = 0;
 }
 
 function do_mirror_cyclic() {	
