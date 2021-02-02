@@ -2,11 +2,11 @@ const materials = {
 		'mirror' : [true, true, true, true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
 		'xstarts' : [200, 200, 200, 200],
-		'ystarts' : [80, 100, 100, 100],		
+		'ystarts' : [70, 100, 100, 100],		
 		'xmids' : [200, 200, 200, 200],
-		'ymids' : [260, 240, 240, 240],
+		'ymids' : [290, 240, 240, 240],
 		'xends' :  [200, 200, 200, 200],
-		'yends' :    [80, 100, 100, 100]
+		'yends' :    [70, 100, 100, 100]
 	}
 	
 	// this script can save screenshots of completed trials.  
