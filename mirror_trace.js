@@ -150,16 +150,6 @@ imageObj.onload = function() {
  ctx_mirror.globalAlpha=0.4;
  ctx.globalAlpha=0.4;
 
-// TODO delete -------
- ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'blue';
- ctx.fill();
-
- ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
- ctx.fillStyle = 'blue';
- ctx.fill();
- // -------------
-
 
  ctx.beginPath();
   if (mirror) {
