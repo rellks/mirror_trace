@@ -2,7 +2,7 @@ const materials = {
 		'mirror' : [true, true, true, true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
 		'xstarts' : [200, 200, 200, 200],
-		'ystarts' : [100, 100, 100, 100],		
+		'ystarts' : [95, 100, 100, 100],		
 		'xmids' : [200, 200, 200, 200],
 		'ymids' : [240, 240, 240, 240],
 		'xends' :  [200, 200, 200, 200],
@@ -149,6 +149,17 @@ imageObj.onload = function() {
  ctx_mirror.drawImage(imageObj, 0, 0, mywidth, myheight);
  ctx_mirror.globalAlpha=0.4;
  ctx.globalAlpha=0.4;
+
+// TODO delete -------
+ ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'blue';
+ ctx.fill();
+
+ ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+ ctx.fillStyle = 'blue';
+ ctx.fill();
+ // -------------
+
 
  ctx.beginPath();
   if (mirror) {
