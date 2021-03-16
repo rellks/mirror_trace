@@ -23,6 +23,8 @@ const materials = {
 	const endRadius = 8;
 	const midRadius = 20;
 
+	const minPathLength = 200; // minimum length of path to complete trace
+
 	let numRestarts = 0;
 	let firstTry = true;
 
@@ -150,15 +152,22 @@ imageObj.onload = function() {
  ctx_mirror.globalAlpha=0.4;
  ctx.globalAlpha=0.4;
 
+// TODO comment out; Display mid and end circles -------
+ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ctx.fillStyle = 'blue';
+ctx.fill();
 
- ctx.beginPath();
-  if (mirror) {
-	  ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
-
+ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+ctx.fillStyle = 'red';
+ctx.fill();
+ctx.beginPath();
+if (mirror) {
+	ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
   } else {
-	  ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
-  }
+	ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
+}
 
+// --------
  ctx.fillStyle = 'green';
  ctx.fill();
 
@@ -205,7 +214,7 @@ function captureMouseMovement(e){
 		var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
 
 		var cendRadius = Math.sqrt(Math.pow(mouse.x - xend, 2) + Math.pow(mouse.y-yend, 2));
-		if (drawing && passedMid && cendRadius < endRadius && pathLength > 200) {
+		if (drawing && passedMid && cendRadius < endRadius && pathLength > minPathLength) {
 			completed = true;
 			handleKeyDown({keyCode:13});
 		}
