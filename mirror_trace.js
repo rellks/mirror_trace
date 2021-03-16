@@ -16,8 +16,8 @@ const materials = {
  	const saveTrace = false;
 
 	//image dimensions
-	const mywidth = 400;
-	const myheight = 300;
+	const mywidth = 900;
+	const myheight = 675;
 	
 	const startRadius = 10;
 	const endRadius = 8;
