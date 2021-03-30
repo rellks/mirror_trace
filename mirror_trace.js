@@ -153,23 +153,21 @@ imageObj.onload = function() {
  ctx.globalAlpha=0.4;
 
 // TODO comment out; Display mid and end circles -------
-ctx.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
-ctx.fillStyle = 'blue';
-ctx.fill();
+ctx_mirror.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+ctx_mirror.fillStyle = 'blue';
+ctx_mirror.fill();
 
-ctx.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
-ctx.fillStyle = 'red';
-ctx.fill();
-ctx.beginPath();
-if (mirror) {
-	ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
-  } else {
-	ctx.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
-}
+ctx_mirror.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+ctx_mirror.fillStyle = 'red';
+ctx_mirror.fill();
 
 // --------
- ctx.fillStyle = 'green';
- ctx.fill();
+
+ctx_mirror.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
+ctx.fillStyle = 'green';
+ctx.fill();
+ 
+ctx_mirror.beginPath();
 
  ctx_mirror.globalAlpha=1;
  ctx.globalAlpha=1;
