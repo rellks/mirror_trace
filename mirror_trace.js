@@ -458,7 +458,7 @@ function do_mirror_cyclic() {
 	//drawing contexts for cursor area and mirrored area
 	canvas = document.querySelector('#paint');
 	ctx = canvas.getContext('2d');
-	canvas_mirror = document.querySelector('#mirror');
+	canvas_mirror = document.querySelector('#paint');
 	ctx_mirror = canvas_mirror.getContext('2d');
 
 	//defines data structure for mouse movement
