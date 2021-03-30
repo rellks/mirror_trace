@@ -144,6 +144,25 @@ function onPaint() {
 	}
 	ctx_mirror.stroke();
 };
+
+// draw start, middle, end circle points
+function drawSMECircles(){
+	// TODO comment out; Display mid and end circles -------
+	ctx_mirror.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.fillStyle = 'blue';
+	ctx_mirror.fill();
+
+	ctx_mirror.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.fillStyle = 'red';
+	ctx_mirror.fill();
+
+	// --------
+
+	ctx_mirror.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.fillStyle = 'green';
+	ctx_mirror.fill();
+}
+
 function getNewImageObj(){
 //load the image to trace
 var imageObj = new Image();
@@ -152,20 +171,7 @@ imageObj.onload = function() {
  ctx_mirror.globalAlpha=0.4;
  ctx.globalAlpha=0.4;
 
-// TODO comment out; Display mid and end circles -------
-ctx_mirror.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
-ctx_mirror.fillStyle = 'blue';
-ctx_mirror.fill();
-
-ctx_mirror.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
-ctx_mirror.fillStyle = 'red';
-ctx_mirror.fill();
-
-// --------
-
-ctx_mirror.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
-ctx_mirror.fillStyle = 'green';
-ctx_mirror.fill();
+drawSMECircles();
  
 ctx_mirror.beginPath();
 
@@ -292,6 +298,8 @@ function captureMouseMovement(e){
 			if (currentRefresh - lastRefresh > (1000/30) ) {
 				ctx_mirror.drawImage(imageObj, 0, 0, mywidth, myheight);
 				
+				drawSMECircles();
+
 				ctx_mirror.fillStyle = 'green';
 				ctx_mirror.globalAlpha=0.4;
 				//ctx_mirror.beginPath();
