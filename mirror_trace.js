@@ -298,10 +298,12 @@ function captureMouseMovement(e){
 			if (currentRefresh - lastRefresh > (1000/30) ) {
 				ctx_mirror.drawImage(imageObj, 0, 0, mywidth, myheight);
 				
-				drawSMECircles();
 
 				ctx_mirror.fillStyle = 'green';
 				ctx_mirror.globalAlpha=0.4;
+
+				drawSMECircles();
+
 				//ctx_mirror.beginPath();
 	            if (mirror) {
 				//	ctx_mirror.arc(mywidth - xstart, myheight - ystart, startRadius, 0, 2 * Math.PI, false);
@@ -311,7 +313,6 @@ function captureMouseMovement(e){
 	           // ctx_mirror.fill();
 				ctx_mirror.globalAlpha=1
 				
-				ctx_mirror.beginPath();
 				if (mirror) {
 					ctx_mirror.arc(mywidth-mouse.x, myheight-mouse.y, 4, 0, 2 * Math.PI, false);
 				} else {
@@ -319,6 +320,9 @@ function captureMouseMovement(e){
 				}
 				ctx_mirror.fillStyle = 'green';
 				ctx_mirror.fill();
+
+				ctx_mirror.beginPath();
+
 				lastRefresh = currentRefresh
 				document.getElementById("status").innerHTML = "Click the green circle to start."; 
 			}
