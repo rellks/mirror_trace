@@ -456,7 +456,7 @@ function do_mirror_cyclic() {
 	ymid = materials.ymids[trialnumber];
 
 	//drawing contexts for cursor area and mirrored area
-	canvas = document.querySelector('#paint');
+	canvas = document.querySelector('#mirror');
 	ctx = canvas.getContext('2d');
 	canvas_mirror = document.querySelector('#mirror');
 	ctx_mirror = canvas_mirror.getContext('2d');
