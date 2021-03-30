@@ -164,8 +164,8 @@ ctx_mirror.fill();
 // --------
 
 ctx_mirror.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
-ctx.fillStyle = 'green';
-ctx.fill();
+ctx_mirror.fillStyle = 'green';
+ctx_mirror.fill();
  
 ctx_mirror.beginPath();
 
