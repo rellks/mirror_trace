@@ -151,19 +151,19 @@ function drawSMECircles(){
 
 	// TODO comment out; Display mid and end circles -------
 	ctx_mirror.beginPath();
-	ctx_mirror.arc(xmid, ymid, endRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.arc(mywidth - xmid, myheight - ymid, endRadius, 0, 2 * Math.PI, false);
 	ctx_mirror.fillStyle = 'blue';
 	ctx_mirror.fill();
 
 	ctx_mirror.beginPath();
-	ctx_mirror.arc(xend, yend, endRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.arc(mywidth - xend, myheight - yend, endRadius, 0, 2 * Math.PI, false);
 	ctx_mirror.fillStyle = 'red';
 	ctx_mirror.fill();
 
 	// --------
 
 	ctx_mirror.beginPath();
-	ctx_mirror.arc(xstart, ystart, startRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.arc(mywidth - xstart, myheight - ystart, startRadius, 0, 2 * Math.PI, false);
 	ctx_mirror.fillStyle = 'green';
 	ctx_mirror.fill();
 }
