@@ -182,7 +182,7 @@ ctx_mirror.beginPath();
 
  ctx_mirror.globalAlpha=1;
  ctx.globalAlpha=1;
- document.getElementById("status").innerHTML = "Click the green circle to start."; 
+ document.getElementById("status").innerHTML = "Click the blue circle to start."; 
 };
 imageObj.crossOrigin="anonymous";
 imageObj.src=imagePath;
@@ -323,7 +323,7 @@ function captureMouseMovement(e){
 				ctx_mirror.beginPath();
 
 				lastRefresh = currentRefresh
-				document.getElementById("status").innerHTML = "Click the green circle to start."; 
+				document.getElementById("status").innerHTML = "Click the blue circle to start."; 
 			}
 			} 
 		}
