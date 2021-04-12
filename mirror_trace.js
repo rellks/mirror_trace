@@ -147,7 +147,7 @@ function onPaint() {
 
 // draw start, middle, end circle points
 function drawSMECircles(){
-	ctx_mirror.globalAlpha=0.4;
+	ctx_mirror.globalAlpha=1;
 
 	// TODO comment out; Display mid and end circles -------
 	ctx_mirror.beginPath();
