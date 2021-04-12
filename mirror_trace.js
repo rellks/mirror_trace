@@ -164,7 +164,7 @@ function drawSMECircles(){
 
 	ctx_mirror.beginPath();
 	ctx_mirror.arc(mywidth - xstart, myheight - ystart, startRadius, 0, 2 * Math.PI, false);
-	ctx_mirror.fillStyle = 'green';
+	ctx_mirror.fillStyle = '#add8e6'; //light blue
 	ctx_mirror.fill();
 }
 
