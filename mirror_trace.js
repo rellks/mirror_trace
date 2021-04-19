@@ -20,7 +20,7 @@ const materials = {
 	const myheight = 675;
 	
 	const startRadius = 10;
-	const endRadius = 8;
+	const endRadius = 10;
 	const midRadius = 20;
 
 	const minPathLength = 200; // minimum length of path to complete trace
@@ -151,7 +151,7 @@ function drawSMECircles(){
 
 	// TODO comment out; Display mid and end circles -------
 	ctx_mirror.beginPath();
-	ctx_mirror.arc(mywidth - xmid, myheight - ymid, endRadius, 0, 2 * Math.PI, false);
+	ctx_mirror.arc(mywidth - xmid, myheight - ymid, midRadius, 0, 2 * Math.PI, false);
 	ctx_mirror.fillStyle = 'blue';
 	ctx_mirror.fill();
 
