@@ -20,7 +20,7 @@ const materials = {
 	const myheight = 675;
 	
 	const startRadius = 10;
-	const endRadius = 10;
+	const endRadius = 15;
 	const midRadius = 20;
 
 	const minPathLength = 200; // minimum length of path to complete trace
