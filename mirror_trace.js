@@ -150,7 +150,7 @@ function drawSMECircles(){
 	ctx_mirror.globalAlpha=1;
 
 	// TODO comment out; Display mid and end circles -------
-	ctx_mirror.beginPath();
+	/*ctx_mirror.beginPath();
 	ctx_mirror.arc(mywidth - xmid, myheight - ymid, midRadius, 0, 2 * Math.PI, false);
 	ctx_mirror.fillStyle = 'blue';
 	ctx_mirror.fill();
@@ -158,7 +158,7 @@ function drawSMECircles(){
 	ctx_mirror.beginPath();
 	ctx_mirror.arc(mywidth - xend, myheight - yend, endRadius, 0, 2 * Math.PI, false);
 	ctx_mirror.fillStyle = 'red';
-	ctx_mirror.fill();
+	ctx_mirror.fill();*/
 
 	// --------
 
