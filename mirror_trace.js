@@ -1,11 +1,11 @@
 const materials = {
 		'mirror' : [true, true, true, true],
 		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
-		'xstarts' : [100, 448, 450, 450],
-		'ystarts' : [100, 165, 170, 170],		
-		'xmids' : [460, 448, 450, 450],
-		'ymids' : [638, 650, 641, 641],
-		'xends' :  [460, 448, 450, 450],
+		'xstarts' : 445, 452, 450, 450],
+		'ystarts' : [172, 165, 170, 170],		
+		'xmids' : [445, 452, 450, 450],
+		'ymids' : [638, 652, 641, 641],
+		'xends' :  [435, 452, 450, 450],
 		'yends' :    [172, 165, 170, 170]
 	}
 	
