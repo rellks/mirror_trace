@@ -1,6 +1,6 @@
 const materials = {
 		'mirror' : [true, true, true, true],
-		'file_names' : [ "https://rellks.github.io/mirror_trace/Star-easy.png", "https://rellks.github.io/mirror_trace/Star-medium.png", "https://rellks.github.io/mirror_trace/Star-hard.png", "https://rellks.github.io/mirror_trace/Star.png"],
+		'file_names' : [ "https://steubnerrhodes.github.io/mirror_trace/Star-easy.png", "https://steubnerrhodes.github.io/mirror_trace/Star-medium.png", "https://steubnerrhodes.github.io/mirror_trace/Star-hard.png", "https://steubnerrhodes.github.io/mirror_trace/Star.png"],
 		'xstarts' : [447, 452, 452, 452],
 		'ystarts' : [172, 165, 165, 165],		
 		'xmids' : [447, 452, 452, 452],
